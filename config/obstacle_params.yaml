@@ -1,0 +1,38 @@
+# 避障系统参数配置
+
+obstacle:
+  # 避障检测范围
+  detection:
+    front_distance: 1.5       # 前方检测距离 (m)
+    side_distance: 1.0        # 侧面检测距离 (m)
+    detection_frequency: 20   # 检测频率 (Hz)
+  
+  # 摄像头视场角
+  camera:
+    horizontal_fov: 62.0      # 水平视场角 (度)
+    vertical_fov: 48.5        # 垂直视场角 (度)
+  
+  # 障碍物识别参数
+  detection_parameters:
+    edge_detection_threshold: 100
+    min_obstacle_size: 50     # 最小障碍物像素数
+    confidence_threshold: 0.7 # 检测置信度
+  
+  # 避障行为
+  behavior:
+    safe_distance: 0.8        # 最小安全距离 (m)
+    avoidance_speed: 0.5      # 避障速度 (m/s)
+    hover_time: 2.0           # 悬停时间 (s)
+    max_avoidance_attempts: 3 # 最大避障尝试次数
+  
+  # 避障优先级
+  priority:
+    front: 1                  # 前方障碍优先级
+    side: 0.8                 # 侧面障碍优先级
+    ground: 0.5               # 地面障碍优先级
+  
+  # 启用的避障模式
+  modes:
+    front_avoidance: true
+    side_avoidance: true
+    height_adjustment: true

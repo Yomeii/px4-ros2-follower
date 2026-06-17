@@ -1,0 +1,47 @@
+# 视觉识别参数配置
+
+vision:
+  # 摄像头参数
+  camera:
+    device_id: 0              # 摄像头设备ID
+    width: 640                # 分辨率宽度
+    height: 480               # 分辨率高度
+    fps: 30                   # 帧率
+  
+  # 目标颜色识别（HSV色彩空间）
+  target_color:
+    # 红色目标
+    lower_hsv: [0, 50, 50]    # H, S, V 下限
+    upper_hsv: [10, 255, 255] # H, S, V 上限
+  
+  # 备选颜色范围（如需要检测多种颜色）
+  alternative_colors:
+    blue:
+      lower_hsv: [100, 50, 50]
+      upper_hsv: [130, 255, 255]
+    green:
+      lower_hsv: [40, 50, 50]
+      upper_hsv: [80, 255, 255]
+  
+  # 目标检测参数
+  detection:
+    min_area: 500             # 最小检测面积 (像素)
+    max_area: 50000           # 最大检测面积 (像素)
+    min_circularity: 0.5      # 最小圆形度
+    contour_epsilon: 0.02     # 轮廓近似精度
+  
+  # 图像处理参数
+  processing:
+    blur_kernel: [5, 5]       # 模糊核大小
+    dilate_kernel_size: 3     # 膨胀核大小
+    erode_kernel_size: 3      # 腐蚀核大小
+    morphology_iterations: 2  # 形态学操作次数
+  
+  # 目标追踪参数
+  tracking:
+    history_size: 10          # 历史位置点数
+    velocity_threshold: 0.5   # 速度阈值 (m/s)
+    max_tracking_distance: 100 # 最大追踪距离 (像素)
+  
+  # 处理频率 (Hz)
+  processing_frequency: 30

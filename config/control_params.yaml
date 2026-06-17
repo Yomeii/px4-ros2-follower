@@ -1,0 +1,46 @@
+# PID控制参数配置
+
+follower:
+  # 目标跟随距离 (m)
+  target_distance: 2.0
+  
+  # 目标飞行高度 (m)
+  target_height: 1.5
+  
+  # 最大飞行速度 (m/s)
+  max_velocity: 2.0
+  
+  # 最小飞行速度 (m/s)
+  min_velocity: 0.1
+  
+  # PID参数
+  pid:
+    # 距离控制PID
+    distance:
+      kp: 1.2      # 比例系数
+      ki: 0.1      # 积分系数
+      kd: 0.5      # 微分系数
+      max_integral: 1.0
+      max_output: 2.0
+    
+    # 高度控制PID
+    height:
+      kp: 0.8
+      ki: 0.05
+      kd: 0.3
+      max_integral: 0.5
+      max_output: 1.0
+    
+    # 速度同步PID
+    velocity:
+      kp: 0.5
+      ki: 0.02
+      kd: 0.2
+      max_integral: 0.3
+      max_output: 1.5
+  
+  # 控制更新频率 (Hz)
+  control_frequency: 30
+  
+  # 目标丢失超时时间 (s)
+  target_lost_timeout: 3.0
